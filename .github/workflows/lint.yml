@@ -1,0 +1,16 @@
+name: Lint
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: mtgto/swift-format-action@v1.0.0
+        with:
+          configuration_file: .swift-format

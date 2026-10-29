@@ -1,0 +1,22 @@
+name: Auto Correct
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  auto-correct:
+    name: Auto Correct
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: mtgto/swift-format-action@v1.0.0
+        with:
+          configuration_file: .swift-format
+          auto_correct: true
+
+      # auto_correct only rewrites files in the working tree.
+      # Show what changed (commit/push it with another step if you want).
+      - name: Show diff
+        run: git diff
