@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - uses: mtgto/swift-format-action@v1.0.0
+      - uses: mtgto/swift-format-action@v1.1.0
         with:
           configuration_file: .swift-format
           auto_correct: true
